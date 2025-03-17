@@ -1,4 +1,4 @@
-// Replace with your actual Supabase project credentials
+// Replace with your Supabase credentials
 const SUPABASE_URL = 'https://ixjkhekgwcyhcgeszufi.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4amtoZWtnd2N5aGNnZXN6dWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIxNzA4ODIsImV4cCI6MjA1Nzc0Njg4Mn0.BE6xpW0KXUvlZGNh2lTQWoXEpcZrD-XiKAqsOjeo7SA';
 
@@ -6,12 +6,19 @@ const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function fetchBooks() {
     try {
+        console.log('Fetching books...');
+
         let { data: books, error } = await supabase.from('books').select('*');
 
-        if (error) throw error;
+        if (error) {
+            console.error('Supabase Error:', error);
+            return;
+        }
+
+        console.log('Fetched Books:', books);
 
         const tableBody = document.getElementById('books-table-body');
-        tableBody.innerHTML = '';
+        tableBody.innerHTML = ''; // Clear any previous content
 
         books.forEach(book => {
             let row = `<tr>
@@ -22,11 +29,10 @@ async function fetchBooks() {
             tableBody.innerHTML += row;
         });
 
-    } catch (error) {
-        console.error('Error fetching books:', error);
+    } catch (err) {
+        console.error('Unexpected Error:', err);
     }
 }
 
 // Fetch books when the page loads
 document.addEventListener('DOMContentLoaded', fetchBooks);
-
