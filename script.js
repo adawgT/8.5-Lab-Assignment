@@ -2,7 +2,7 @@
 const SUPABASE_URL = 'https://ixjkhekgwcyhcgeszufi.supabase.co';
 const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4amtoZWtnd2N5aGNnZXN6dWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIxNzA4ODIsImV4cCI6MjA1Nzc0Njg4Mn0.BE6xpW0KXUvlZGNh2lTQWoXEpcZrD-XiKAqsOjeo7SA';
 
-const supabase = supabase.createClient(https://ixjkhekgwcyhcgeszufi.supabase.co, eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml4amtoZWtnd2N5aGNnZXN6dWZpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIxNzA4ODIsImV4cCI6MjA1Nzc0Njg4Mn0.BE6xpW0KXUvlZGNh2lTQWoXEpcZrD-XiKAqsOjeo7SA);
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 async function fetchBooks() {
     try {
