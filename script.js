@@ -21,11 +21,13 @@ async function fetchBooks() {
         tableBody.innerHTML = ''; // Clear any previous content
 
         books.forEach(book => {
-            let row = `<tr>
+            let row = `
+            <tr>
                 <td>${book.Title}</td>
                 <td>${book.Author}</td>
                 <td>${book.ISBN}</td>
-            </tr>`;
+            </tr>
+        `;
             tableBody.innerHTML += row;
         });
 
